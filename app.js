@@ -510,13 +510,44 @@ function bindGlobalEvents() {
     });
   });
 
-  // Botón exportar
-  document.getElementById('btn-export-json').addEventListener('click', exportAnswersJson);
+  // Botón exportar superior e inferior
+  const btnExportTop = document.getElementById('btn-export-json');
+  if (btnExportTop) btnExportTop.addEventListener('click', exportAnswersJson);
+  const btnExportBottom = document.getElementById('btn-export-bottom');
+  if (btnExportBottom) btnExportBottom.addEventListener('click', exportAnswersJson);
+
+  // Previsualización de JSON y copia
+  const btnTogglePreview = document.getElementById('btn-toggle-preview');
+  if (btnTogglePreview) {
+    btnTogglePreview.addEventListener('click', () => {
+      const container = document.getElementById('json-preview-container');
+      if (!container) return;
+      const isOpen = container.style.display !== 'none';
+      container.style.display = isOpen ? 'none' : 'block';
+      btnTogglePreview.textContent = isOpen ? '👁️ Previsualizar JSON en Pantalla' : '🙈 Ocultar Previsualización';
+      if (!isOpen) refreshJsonPreview();
+    });
+  }
+
+  const btnCopyJson = document.getElementById('btn-copy-json');
+  if (btnCopyJson) {
+    btnCopyJson.addEventListener('click', () => {
+      const payloadStr = JSON.stringify(getPayload(), null, 2);
+      navigator.clipboard.writeText(payloadStr).then(() => {
+        showToast('📋 ¡Contenido JSON copiado al portapapeles!', 'success');
+      }).catch(() => {
+        showToast('No se pudo copiar automáticamente. Por favor selecciónalo manualmente.', 'warning');
+      });
+    });
+  }
   
   // Botón importar
   const importInput = document.getElementById('file-import-input');
-  document.getElementById('btn-import-json').addEventListener('click', () => importInput.click());
-  importInput.addEventListener('change', handleImportJson);
+  if (importInput) {
+    const btnImport = document.getElementById('btn-import-json');
+    if (btnImport) btnImport.addEventListener('click', () => importInput.click());
+    importInput.addEventListener('change', handleImportJson);
+  }
 
   // Modales
   setupModal('btn-open-biblio-all', 'modal-biblio');
@@ -1224,9 +1255,43 @@ function updateProgress() {
   const pct = Math.round((completedExercises / totalExercises) * 100);
   const progressBar = document.getElementById('progress-bar');
   const progressText = document.getElementById('progress-percentage');
+  const bottomBadge = document.getElementById('bottom-status-badge');
 
   if (progressBar) progressBar.style.width = `${pct}%`;
   if (progressText) progressText.textContent = `${pct}% (${completedExercises}/${totalExercises} completados)`;
+  if (bottomBadge) {
+    bottomBadge.textContent = `${completedExercises} / ${totalExercises} Ejercicios`;
+    if (completedExercises === totalExercises) {
+      bottomBadge.className = 'badge-tag emerald';
+      bottomBadge.textContent = '100% Listo para Entregar';
+    } else {
+      bottomBadge.className = 'badge-tag cyan';
+    }
+  }
+
+  refreshJsonPreview();
+}
+
+function getPayload() {
+  return {
+    tp_id: 'LAB1-2026-TP1',
+    student: {
+      name: (state.student.name || '').trim(),
+      dni: (state.student.dni || '').trim(),
+      email: (state.student.email || '').trim(),
+      comision: (state.student.comision || '').trim(),
+      github_user: (state.student.github_user || '').trim()
+    },
+    exported_at: new Date().toISOString(),
+    answers: state.answers
+  };
+}
+
+function refreshJsonPreview() {
+  const codeEl = document.getElementById('json-preview-code');
+  if (codeEl) {
+    codeEl.textContent = JSON.stringify(getPayload(), null, 2);
+  }
 }
 
 function saveStateToStorage() {
@@ -1251,27 +1316,30 @@ function loadStateFromStorage() {
 
 function exportAnswersJson() {
   if (!state.student.name || !state.student.dni) {
-    showToast('Por favor, completa Nombre y DNI en la sección "Datos del Estudiante" antes de exportar.', 'warning');
-    document.getElementById('student-name').focus();
+    showToast('⚠️ Por favor, completa Nombre y DNI en la sección "Datos del Estudiante" antes de exportar.', 'warning');
+    const nameInput = document.getElementById('student-name');
+    if (nameInput) {
+      nameInput.focus();
+      nameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     return;
   }
 
-  const payload = {
-    tp_id: 'LAB1-2026-TP1',
-    student: state.student,
-    exported_at: new Date().toISOString(),
-    answers: state.answers
-  };
-
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(payload, null, 2));
+  saveStateToStorage();
+  const payload = getPayload();
+  const jsonStr = JSON.stringify(payload, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
   const downloadAnchor = document.createElement('a');
-  downloadAnchor.setAttribute("href", dataStr);
-  downloadAnchor.setAttribute("download", "respuestas_tp1.json");
+  downloadAnchor.href = url;
+  downloadAnchor.download = 'respuestas_tp1.json';
   document.body.appendChild(downloadAnchor);
   downloadAnchor.click();
-  downloadAnchor.remove();
+  document.body.removeChild(downloadAnchor);
+  URL.revokeObjectURL(url);
 
-  showToast('¡Archivo respuestas_tp1.json generado con éxito!', 'success');
+  showToast('✅ ¡Archivo respuestas_tp1.json generado y descargado con éxito!', 'success');
+  refreshJsonPreview();
 }
 
 function handleImportJson(e) {

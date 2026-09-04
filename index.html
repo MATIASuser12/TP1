@@ -361,6 +361,37 @@
       </details>
     </section>
 
+    <!-- ==================== GENERACIÓN Y DESCARGA DEL ARCHIVO JSON ==================== -->
+    <section class="card export-action-card" style="border: 2px solid var(--primary); background: rgba(2, 132, 199, 0.08); margin-top: 32px;">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Entrega y Autoevaluación</span>
+          <h2 class="exercise-title">💾 Generación del Archivo de Respuestas (respuestas_tp1.json)</h2>
+        </div>
+        <span class="badge-tag cyan" id="bottom-status-badge">0 / 10 Ejercicios</span>
+      </div>
+      <p class="exercise-instruction">
+        Una vez completados los ejercicios y tus datos personales, genera tu archivo <code>respuestas_tp1.json</code>. Este archivo será procesado por el <code>autograder_tp1.py</code> en tu máquina local o al subirlo a tu repositorio de entregas.
+      </p>
+
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
+        <button class="btn btn-primary" id="btn-export-bottom" style="padding: 12px 24px; font-size: 1rem;">
+          📥 Generar y Descargar respuestas_tp1.json
+        </button>
+        <button class="btn btn-secondary" id="btn-toggle-preview" style="padding: 12px 20px;">
+          👁️ Previsualizar JSON en Pantalla
+        </button>
+      </div>
+
+      <div id="json-preview-container" style="display: none; margin-top: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary);">Contenido estructurado del JSON a exportar:</span>
+          <button class="btn btn-secondary" id="btn-copy-json" style="padding: 4px 10px; font-size: 0.78rem;">📋 Copiar JSON</button>
+        </div>
+        <pre class="code-block" id="json-preview-code" style="max-height: 320px; overflow-y: auto; font-size: 0.82rem; line-height: 1.4;"></pre>
+      </div>
+    </section>
+
   </div>
 
   <!-- ==================== MODAL GUÍA BIBLIOGRÁFICA ==================== -->
