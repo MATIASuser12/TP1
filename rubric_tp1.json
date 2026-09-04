@@ -1,0 +1,125 @@
+{
+  "tp_metadata": {
+    "tp_id": "LAB1-2026-TP1",
+    "title": "TP N° 1: Introducción a la Inteligencia Artificial y Agentes Racionales",
+    "catedra": "Laboratorio I - Tecnicatura Universitaria en Automatización y Robótica / Informática",
+    "version": "1.0.0"
+  },
+  "security": {
+    "algorithm": "SHA-256 + Salted HMAC",
+    "protected": true
+  },
+  "max_score": 100,
+  "exercises": {
+    "ej1_terminos_fundamentales": {
+      "weight": 10,
+      "feedback": "La Inteligencia involucra razonar, aprender y resolver problemas. La IA busca construir entidades racionales. Un Agente percibe y actúa, y la Racionalidad consiste en maximizar el desempeño esperado (Russell & Norvig Cap. 1, Diapositivas Clase 1).",
+      "hashes": {
+        "inteligencia": "96fcb5e3d2c4dc835b82d563496463f819b3495fbed6eac035435bcee3260435",
+        "ia": "4650082666fb6e28639835d5f325a9c67fb3da72e76c22c9cf9fa2a1155c7c26",
+        "agente": "ed470f3f6a2cabb2866a1ee82c5e822e73fa2688b71739f7966f4e922c96f499",
+        "entorno": "bb10fa305f443d4cfaa9ab74c53c091198ae78f51d01d572496f16445e5bb4ba",
+        "racionalidad": "4a7002f45020bc58655eae1f1e51db2a0986f93d5a5fcd4a0be49a19eca61717"
+      }
+    },
+    "ej2_dimensiones_russell_norvig": {
+      "weight": 10,
+      "feedback": "Las 4 dimensiones dividen el estudio según el objetivo (fidelidad humana vs racionalidad ideal) y el enfoque (procesos de pensamiento vs comportamiento externo). El paradigma de los Agentes Racionales se fundamenta en actuar racionalmente para lograr metas (Clase 1 Slide 15).",
+      "hashes": {
+        "pensar_humano": "74f901349bdf1e73822c8193e37f42b20c0f8b98898e5cdb94b32da0a64355a2",
+        "actuar_humano": "094c3bf5727c225a2ca3f60cb519dffea5088f8401257023ccf288d787b8bc2a",
+        "pensar_racional": "3fbd4f1d16d1993f892aaad9be8c992733171b23e7a6dc5e528a6d39ceb4d220",
+        "actuar_racional": "201261f4e3844d6729a110a9addbc5a43c8c7e58eda051ca42cb56ce5ebd69f1",
+        "paradigma_central": "fc2ea9b568de84e77682ee22f9806ec47d6ecb42eb375f84568cf974d65f491f"
+      }
+    },
+    "ej3_ciclo_agente_arquitectura": {
+      "weight": 10,
+      "feedback": "El ciclo sensorial-motor conecta el entorno con sensores (percepciones), procesa la decisión en el programa de agente y ejecuta acciones mediante actuadores. La Función de Agente es el mapeo matemático abstracto (f: P* -> A), mientras que el Programa es el código ejecutable concreto (Russell & Norvig Cap. 2, Clase 1 Slide 17 y Clase 3.1).",
+      "hashes": {
+        "paso1_mundo": "935d12eaeca432568c6d321595d2f630d4736309bcd2c7e9a2df1d0e638f4a8b",
+        "paso2_captura": "1d4319e36a09b97ca5ddfd5a04b05a19743cb3084c40c37068b08dedd6f82c12",
+        "paso3_dato": "0e94abc233a1eee54d3ad9a028698200936aba1a3bcf4101c5d070006fe2ac61",
+        "paso4_decision": "f7d70cea9490b945413e840712697d57c9cba57507577b3a20341c53c889f72c",
+        "paso5_comando": "99e5da94dd2e0e622748a632dd5dd3780a35de184009d78270b01717d1dd2c42",
+        "paso6_ejecucion": "36d2d17c315449ab31ba973fd75478bb15ffbd476344137bdc02685552894530",
+        "distincion_matematica": "8a29eb3aacc362946f63c67b23d53506584aca068ebf1e62173ba0ebd4cf91be",
+        "distincion_implementacion": "b1341d9e758584b90919f6b116b87e24f1d4e4e531477c5ece801d81a3fdbac0"
+      }
+    },
+    "ej4_especificacion_peas": {
+      "weight": 12,
+      "feedback": "El marco PEAS (Rendimiento/Performance, Entorno/Environment, Actuadores, Sensores) es la especificación fundamental antes de diseñar un agente inteligente (Russell & Norvig Cap. 2, Clase 3.1 Slide 14).",
+      "hashes": {
+        "auto_p": "2751b329350f8ba86786bc34853c3eb4cb8ea22cbe9674e42a8dc2ccc79b5a71",
+        "auto_e": "bb84300c7657be905ee468b9222048e08f4287ef1006b12e9ee2f3b3b5671eb5",
+        "auto_a": "7a32f0d5b57dac185abee3a2d15762d074641337de865e3f08401d7ab1841b3e",
+        "auto_s": "ba18d9ddd33f212da8ba4f2707319ea7860d1738c5766e01ae9b5ab46787cac9",
+        "med_p": "5e38cf26140d6d1c6d70053f86ae109ebc06c85920ec72a388329117c0ab864f",
+        "med_e": "50925dedcf1858e1c4be0532efe178d678067e1881d21f90ae677540b6e2f559",
+        "med_a": "4e9d7af823d2f224ee8591322f51526aa898ddc18d3a1a049e343cadc6afb454",
+        "med_s": "af45f96de2b4a647e306c8017c10309f667373e0bd140dfe3b9226a84e63f8db"
+      }
+    },
+    "ej5_propiedades_agentes": {
+      "weight": 10,
+      "feedback": "Los agentes inteligentes combinan Autonomía (operar sin control humano continuo), Reactividad (responder oportunamente al entorno), Proactividad (guiados por objetivos tomando iniciativa) y Habilidad Social (comunicarse y cooperar) (Clase 3.1 Slide 7).",
+      "hashes": {
+        "sit_sin_intervencion": "1476885728cf71660a42e134209f6fa300c42488a0d6eb1325559f6f0cc0f2f2",
+        "sit_detectar_freno": "2b80478f1cd32e015ba170740844d898571a085b50de8ef61236babdea1cf14c",
+        "sit_iniciativa_objetivos": "9dbe585c8153a1ee29aef2094c63cab62d6b87f356299e5a42220f7795c12626",
+        "sit_comunicacion_agentes": "6b90f0d8767f6117bd73338a0271029a529c067a8cc0b30a767a24a20c5b2cee",
+        "sit_adaptacion_entorno": "b7da64d7174026c05f65583abd01669380f907952b162fac95f91c4fb3088a08"
+      }
+    },
+    "ej6_agente_reactivo_simple": {
+      "weight": 10,
+      "feedback": "El agente reactivo simple opera exclusivamente mediante reglas condición-acción sobre la percepción actual inmediata, ignorando por completo el historial previo de percepciones (Russell & Norvig Cap. 2, Clase 3.1 Slides 16-20).",
+      "hashes": {
+        "caso_a_sucio": "035cc34187d887590c4de0b6de71d2967b2b0a98458cb56214c4808d00b14aff",
+        "caso_a_limpio": "6176545872e3058762d851ae0f1d03c58e96d2d9b9a51fff05677fb481565819",
+        "caso_b_sucio": "22a8abfe140af2bd3eca55eede3adee5e47346a620a22feb9603ba652dd302b8",
+        "caso_b_limpio": "9bbf0e711889a179b4bec2f97b06af2e362b7fad9f069f21051c6aae362575c1",
+        "propiedad_memoria": "e2e308be1c84527071425987ea1ee74c66be4ce0598f1dab9db3f311da2c5064"
+      }
+    },
+    "ej7_test_turing_disciplinas": {
+      "weight": 10,
+      "feedback": "El Test de Turing original evalúa capacidades intelectuales mediante texto (PLN, Representación del Conocimiento, Razonamiento y Aprendizaje). Para superar el Test de Turing Total se requiere además interacción física con el mundo: Visión Computacional y Robótica (Clase 1 Slide 18).",
+      "hashes": {
+        "disp_nlp": "b3e700e9b45d05df9184b548c42dc03b1917fa998f182a8f2365757d0a67eed7",
+        "disp_kr": "161f6e31f00df48a18610b3f0629c8de84cb8464d5936837393e0fd378849238",
+        "disp_ar": "74106fa9494c00e2489fcc83c3622d8f707d03f31d78ad37ed2ce5aa469b3b2d",
+        "disp_ml": "d3b0b20b4dea81671f91ad555cb784b5154178900ee80bc4ebc67b076e408782",
+        "disp_cv": "d5e2df05f149e489afa9bdbdf47604ed12ae01c38fea00197228a1398ec6384f",
+        "disp_rob": "ef7cd251fbcc4dce93217329ce2d8b799a91a354d75d21e29becb7f1a4b05e73"
+      }
+    },
+    "ej8_estado_del_arte": {
+      "weight": 8,
+      "feedback": "El diagnóstico por imágenes específicas está ampliamente resuelto superando o igualando al ojo humano; la conducción en ciudades sin delimitar y la traducción contextual fluida están en desarrollo activo acelerado; la demostración autónoma general de conjeturas y teoremas matemáticos no estructurados sigue siendo un problema de investigación abierto (Clase 2 Slides 40-47).",
+      "hashes": {
+        "tarea_diagnostico_imagen": "d31e85792e793b6507e982d6e8dd4813cce52324a5d03f0bbed10be284896fb8",
+        "tarea_traduccion_contextual": "7700d07a489fbe237e39500c8275e9e83f3b84a1dee73ce1dff44743d1d032c7",
+        "tarea_conduccion_urbana_no_delimitada": "1876cff95f867790a3402b165004b3530f70e0043dba723c2da2076649e9490e",
+        "tarea_teoremas_complejos": "2bba3c2fd2f8b2d2020a185eae60693217c5f1bf6d87f3e0817fe9f120d4c9e8"
+      }
+    },
+    "ej9_habitacion_china_searle": {
+      "weight": 10,
+      "feedback": "Searle demuestra mediante la Habitación China que la manipulación puramente sintáctica de símbolos (lo que hace una computadora siguiendo un programa) no produce semántica ni comprensión real de los significados, diferenciando la IA Débil (simulación útil) de la IA Fuerte (conciencia real) (Clase 1 Slides 19-32).",
+      "hashes": {
+        "map_operario": "e13a5ee4f09323577b7b9c5d2c0007907fe3d4237e7d86ec5ca5a34d5ab682fc",
+        "map_libro_reglas": "fa1c3f5f9103c441829d2adca88befa412bfd8cc4308489502dd1cf0affdd0ae",
+        "map_cestas_simbolos": "6eb7535b9500e2ccbbc3649c1a408ed27703a91a4d887e6a7f9b0b1d6f11b207",
+        "map_ranuras_papel": "7f676ba93f3cc67b6bbf679786fa8400e0743507d6fbdffd6bdfa6148020d683",
+        "conclusion_searle": "f0006a96bcf624e6e811a20b409ceee662297481bf55eb81e5977bec1e35c89a"
+      }
+    },
+    "ej10_limites_y_heuristicas": {
+      "weight": 10,
+      "feedback": "La intratabilidad computacional (problemas NP-completos) o la indecidibilidad no impiden la IA, ya que la inteligencia práctica en agentes biológicos e informáticos opera mediante métodos heurísticos, aproximaciones y optimización empírica en lugar de búsquedas exhaustivas exactas de costo astronómico (Clase 2 Slides 6-8 y Clase 3.2).",
+      "hash": "3f389ac8611258ef166fd4c2aed782f08aae9293e6ae083d4c7ddc70d3911feb"
+    }
+  }
+}

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP N° 1: Introducción a la IA y Agentes Racionales | Laboratorio I - 2026</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="container">
+    <!-- ==================== HEADER HERO ==================== -->
+    <header class="header-hero">
+      <div class="header-meta">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="badge-tag cyan">🎓 Laboratorio I — Inteligencia Artificial</span>
+          <span class="badge-tag purple">Automatización y Robótica / Informática</span>
+          <span class="badge-tag emerald">Ciclo Lectivo 2026</span>
+        </div>
+        <button id="theme-toggle-btn" class="btn btn-secondary" style="padding: 4px 10px; font-size: 0.8rem;">🌓 Tema</button>
+      </div>
+
+      <h1 class="main-title">Trabajo Práctico N° 1: Introducción a la IA y Agentes Racionales</h1>
+      <p class="subtitle">Fundamentos Conceptuales, Dimensiones de Russell & Norvig, Arquitectura de Agentes, Test de Turing y Filosofía</p>
+
+      <div class="academic-info">
+        <div><strong>Cátedra:</strong> Laboratorio I — Área de Inteligencia Artificial</div>
+        <div><strong>Jefe de Trabajos Prácticos (JTP):</strong> Ing. Fabio D. Argañaraz</div>
+        <div><strong>Modalidad:</strong> Individual — Autoevaluativo + Exportación JSON para Git</div>
+        <div><strong>Evaluación:</strong> Criptográfica determinista local vía <code>autograder_tp1.py</code> (100 pts)</div>
+      </div>
+    </header>
+
+    <!-- ==================== STICKY TOOLBAR ==================== -->
+    <div class="sticky-toolbar">
+      <div class="progress-container">
+        <div class="progress-labels">
+          <span>Progreso de Resolución</span>
+          <span id="progress-percentage">0% (0/10 completados)</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="toolbar-actions">
+        <button class="btn btn-outline-amber" id="btn-open-biblio-all">📚 Guía Bibliográfica</button>
+        <button class="btn btn-secondary" id="btn-import-json">📥 Importar JSON</button>
+        <button class="btn btn-outline-blue" id="btn-git-guide">🚀 Guía Git / GitHub</button>
+        <button class="btn btn-primary" id="btn-export-json">💾 Exportar Respuestas (.json)</button>
+        <input type="file" id="file-import-input" accept=".json" style="display: none;">
+      </div>
+    </div>
+
+    <!-- ==================== DATOS DEL ESTUDIANTE ==================== -->
+    <section class="card student-card">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Identificación de Entrega</span>
+          <h2 class="exercise-title">Datos del Estudiante (Trabajo Individual)</h2>
+        </div>
+        <span class="badge-tag cyan">Obligatorio</span>
+      </div>
+      <p class="exercise-instruction">
+        Completa tus datos personales para que queden vinculados al archivo <code>respuestas_tp1.json</code> que evaluarás localmente con el autograder y subirás a tu repositorio de entregas.
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="student-name">Nombre y Apellido *</label>
+          <input type="text" id="student-name" class="form-input" placeholder="Ej. Carlos Gómez" required>
+        </div>
+        <div class="form-group">
+          <label for="student-dni">DNI / Matrícula Universitaria *</label>
+          <input type="text" id="student-dni" class="form-input" placeholder="Ej. 41234567" required>
+        </div>
+        <div class="form-group">
+          <label for="student-email">Correo Electrónico Institucional</label>
+          <input type="email" id="student-email" class="form-input" placeholder="alumno@universidad.edu.ar">
+        </div>
+        <div class="form-group">
+          <label for="student-comision">Comisión de Prácticos</label>
+          <input type="text" id="student-comision" class="form-input" placeholder="Ej. Comisión 1 - Turno Tarde">
+        </div>
+        <div class="form-group">
+          <label for="student-github">Usuario de GitHub</label>
+          <input type="text" id="student-github" class="form-input" placeholder="Ej. cgomez-dev">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOQUE 1: FUNDAMENTOS Y ENFOQUES ==================== -->
+    <div style="margin: 32px 0 16px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px;">
+      <h3 style="color: var(--text-accent); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.5px;">
+        Bloque 1: Fundamentos y Enfoques de la Inteligencia Artificial
+      </h3>
+    </div>
+
+    <!-- EJERCICIO 1 -->
+    <section class="card" id="card-ej1">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 1 · 10 Puntos</span>
+          <h2 class="exercise-title">Términos Fundamentales de la IA y Agentes</h2>
+        </div>
+        <span class="badge-tag">Conceptos Clave</span>
+      </div>
+      <p class="exercise-instruction">
+        Asocia cada uno de los 5 conceptos fundacionales con su definición técnica precisa según la literatura académica de Russell & Norvig y las diapositivas de la cátedra.
+      </p>
+
+      <div id="ej1-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 1.1: ¿Qué es la IA? pp. 1-5):</strong> Definiciones formales de Inteligencia, entidad artificial, agente racional vs. humano y delimitación del concepto de racionalidad orientada a desempeño.<br>
+          <strong>Presentación Clase 1:</strong> Slides 10 a 13 (Infografía de Entidad Artificial + Capacidades de Inteligencia).
+        </div>
+      </details>
+    </section>
+
+    <!-- EJERCICIO 2 -->
+    <section class="card" id="card-ej2">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 2 · 10 Puntos</span>
+          <h2 class="exercise-title">El Cuadrante de las 4 Dimensiones de Russell & Norvig</h2>
+        </div>
+        <span class="badge-tag">Matriz Teórica</span>
+      </div>
+      <p class="exercise-instruction">
+        Clasifica cada uno de los 4 enfoques históricos de la IA según sus dos ejes fundamentales (Eje de Medida: <em>Fidelidad Humana vs. Racionalidad Ideal</em>; Eje de Foco: <em>Procesos Internos de Razonamiento vs. Comportamiento Externo</em>) e identifica el paradigma central de la robótica y automatización.
+      </p>
+
+      <div id="ej2-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 1.1 pp. 2-5, Cuadro 1.1):</strong> Las cuatro categorías: Sistemas que piensan como humanos (Ciencias Cognitivas), que actúan como humanos (Turing), que piensan racionalmente (Leyes de la lógica) y que actúan racionalmente (Agentes).<br>
+          <strong>Presentación Clase 1:</strong> Slide 15 (Infografía del Cuadrante 2x2) y Slide 16 (Leyes del pensamiento vs. Agentes Racionales).
+        </div>
+      </details>
+    </section>
+
+    <!-- ==================== BLOQUE 2: ESTRUCTURA Y AGENTES ==================== -->
+    <div style="margin: 32px 0 16px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px;">
+      <h3 style="color: var(--text-accent); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.5px;">
+        Bloque 2: Arquitectura, Especificación y Comportamiento de Agentes
+      </h3>
+    </div>
+
+    <!-- EJERCICIO 3 -->
+    <section class="card" id="card-ej3">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 3 · 10 Puntos</span>
+          <h2 class="exercise-title">Anatomía y Ciclo Sensorial-Motor del Agente</h2>
+        </div>
+        <span class="badge-tag">Arquitectura</span>
+      </div>
+      <p class="exercise-instruction">
+        Ordena y asigna los componentes que conforman el ciclo interactivo continuo entre el agente y el entorno. Luego, clasifica la diferencia fundamental entre la <em>Función de Agente</em> y el <em>Programa de Agente</em>.
+      </p>
+
+      <div id="ej3-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 2.1 pp. 34-38):</strong> Agentes y entornos, la secuencia de percepciones, la función matemática de agente f: P* → A y su implementación algorítmica en programas de agente.<br>
+          <strong>Presentación Clase 1:</strong> Slide 17 ("El Agente Físico Inteligente: Percepción, Razonamiento, Acción").<br>
+          <strong>Presentación Clase 3.1:</strong> Slides 5 a 10 (Capacidades de los agentes y control autónomo).
+        </div>
+      </details>
+    </section>
+
+    <!-- EJERCICIO 4 -->
+    <section class="card" id="card-ej4">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 4 · 12 Puntos</span>
+          <h2 class="exercise-title">Especificación de Entornos de Tareas — Marco PEAS (PAGE)</h2>
+        </div>
+        <span class="badge-tag">Ingeniería de Agentes</span>
+      </div>
+      <p class="exercise-instruction">
+        Antes de programar un agente, es indispensable especificar formalmente su entorno mediante el marco <strong>PEAS</strong> (<em>Performance, Environment, Actuators, Sensors</em>). Configura las características de los dos agentes presentados en la cátedra.
+      </p>
+
+      <div id="ej4-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 2.3 pp. 42-46):</strong> Especificación del entorno de trabajo (PEAS: Rendimiento, Entorno, Actuadores, Sensores) con tablas de ejemplos (taxi automático, diagnóstico médico).<br>
+          <strong>Presentación Clase 3.1:</strong> Slides 11 a 14 (Aspiradora robot y tabla comparativa PEAS).
+        </div>
+      </details>
+    </section>
+
+    <!-- EJERCICIO 5 -->
+    <section class="card" id="card-ej5">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 5 · 10 Puntos</span>
+          <h2 class="exercise-title">Propiedades Operacionales de los Agentes Inteligentes</h2>
+        </div>
+        <span class="badge-tag">Propiedades</span>
+      </div>
+      <p class="exercise-instruction">
+        Clasifica cada una de las siguientes situaciones prácticas determinando cuál de las cuatro propiedades esenciales de un agente inteligente (<em>Autonomía, Reactividad, Proactividad, Habilidad Social</em>) se manifiesta prioritariamente.
+      </p>
+
+      <div id="ej5-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Presentación Clase 3.1:</strong> Slide 7 (Definición de Wooldridge y Jennings: Autonomía, Habilidad Social, Reactividad y Proactividad).
+        </div>
+      </details>
+    </section>
+
+    <!-- EJERCICIO 6 -->
+    <section class="card" id="card-ej6">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 6 · 10 Puntos</span>
+          <h2 class="exercise-title">Agentes Reactivos Simples y Reglas Condición-Acción</h2>
+        </div>
+        <span class="badge-tag">Lógica Condicional</span>
+      </div>
+      <p class="exercise-instruction">
+        Analiza el comportamiento del agente aspiradora reactivo simple de dos casillas (A y B) presentado en cátedra (Slide 18-20 de 3.1). Determina la acción disparada por las reglas de condición-acción y especifica la característica de su memoria temporal.
+      </p>
+
+      <div id="ej6-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 2.4.1 pp. 47-49):</strong> Agentes reactivos simples, esquemas de reglas condición-acción (if-then) y sus limitaciones intrínsecas en entornos parcialmente observables.<br>
+          <strong>Presentación Clase 3.1:</strong> Slides 16 a 20 (Código Python y pseudocódigo del agente aspiradora).
+        </div>
+      </details>
+    </section>
+
+    <!-- ==================== BLOQUE 3: EVALUACIÓN Y ESTADO DEL ARTE ==================== -->
+    <div style="margin: 32px 0 16px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px;">
+      <h3 style="color: var(--text-accent); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.5px;">
+        Bloque 3: Evaluación de la Inteligencia y Frontera del Estado del Arte
+      </h3>
+    </div>
+
+    <!-- EJERCICIO 7 -->
+    <section class="card" id="card-ej7">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 7 · 10 Puntos</span>
+          <h2 class="exercise-title">El Test de Turing Original frente al Test de Turing Total</h2>
+        </div>
+        <span class="badge-tag">Evaluación Empírica</span>
+      </div>
+      <p class="exercise-instruction">
+        Clasifica cada una de las 6 disciplinas computacionales de la IA indicando si es requerida para el <strong>Test de Turing Estándar</strong> (comunicación textual por teletipo) o si es exclusiva del <strong>Test de Turing Total</strong> (interacción física y perceptual con el mundo real).
+      </p>
+
+      <div id="ej7-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 1.1 pp. 2-3):</strong> El Test de Turing, capacidades del evaluador textual vs. requerimientos de interacción física del Test Total (visión y robótica).<br>
+          <strong>Presentación Clase 1:</strong> Slide 18 ("El Test de Turing como Arquitectura de Sistemas: Tecnologías Críticas").
+        </div>
+      </details>
+    </section>
+
+    <!-- EJERCICIO 8 -->
+    <section class="card" id="card-ej8">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 8 · 8 Puntos</span>
+          <h2 class="exercise-title">Termómetro del Estado del Arte y Madurez Tecnológica</h2>
+        </div>
+        <span class="badge-tag">Aplicaciones Reales</span>
+      </div>
+      <p class="exercise-instruction">
+        Evalúa el estado tecnológico actual de las siguientes tareas computacionales, clasificándolas en: <em>Resuelto / Dominado</em>, <em>En Desarrollo Activo</em> o <em>Problema Abierto No Resuelto</em>.
+      </p>
+
+      <div id="ej8-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 1.4: El Estado del Arte pp. 28-30):</strong> Diagnóstico médico, juegos de estrategia, traducción automática y vehículos autónomos.<br>
+          <strong>Presentación Clase 2:</strong> Slides 40 a 47 (Aplicaciones de la IA: Diagnóstico por imágenes en Slide 43, PLN en Slide 45, Vehículos autónomos en Slide 46 y Robótica en Slide 47).
+        </div>
+      </details>
+    </section>
+
+    <!-- ==================== BLOQUE 4: FILOSOFÍA, LÍMITES Y HEURÍSTICA ==================== -->
+    <div style="margin: 32px 0 16px; border-bottom: 2px solid var(--border-subtle); padding-bottom: 8px;">
+      <h3 style="color: var(--text-accent); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.5px;">
+        Bloque 4: Filosofía, Límites Formales y Heurística
+      </h3>
+    </div>
+
+    <!-- EJERCICIO 9 -->
+    <section class="card" id="card-ej9">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 9 · 10 Puntos</span>
+          <h2 class="exercise-title">La Habitación China de Searle: Metáfora Computacional</h2>
+        </div>
+        <span class="badge-tag">IA Fuerte vs Débil</span>
+      </div>
+      <p class="exercise-instruction">
+        Mapea cada elemento del experimento mental de John Searle con su componente equivalente en la arquitectura computacional moderna (Slide 20 de Clase 1) y selecciona la tesis principal del argumento.
+      </p>
+
+      <div id="ej9-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 26.2: ¿Pueden las máquinas tener mentes reales? pp. 1024-1028):</strong> El experimento de la Habitación China, sintaxis versus semántica, objeciones y la respuesta del sistema.<br>
+          <strong>Presentación Clase 1:</strong> Slides 19 a 32 (Decodificando la metáfora computacional: operario, libro de reglas, cestas de símbolos, ranuras I/O).
+        </div>
+      </details>
+    </section>
+
+    <!-- EJERCICIO 10 -->
+    <section class="card" id="card-ej10">
+      <div class="exercise-header">
+        <div>
+          <span class="exercise-number">Ejercicio 10 · 10 Puntos</span>
+          <h2 class="exercise-title">Límites Formales de la Computabilidad frente a los Métodos Heurísticos</h2>
+        </div>
+        <span class="badge-tag">Complejidad y Búsqueda</span>
+      </div>
+      <p class="exercise-instruction">
+        ¿El hecho de que existan problemas indecidibles (como el problema de la parada) o computacionalmente intratables (como los problemas NP-completos) demuestra la imposibilidad de la IA? Selecciona la postura técnica y epistemológica correcta que fundamenta a la disciplina.
+      </p>
+
+      <div id="ej10-container"></div>
+
+      <details class="biblio-hint">
+        <summary>📖 Dónde estudiar este tema en la bibliografía</summary>
+        <div class="biblio-content">
+          <strong>Russell & Norvig (Cap. 1.2: Fundamentos matemáticos de la IA pp. 8-10):</strong> Incompletitud, indecidibilidad e intratabilidad de tiempo exponencial. La necesidad de algoritmos de búsqueda informada y heurísticas que ofrecen soluciones óptimas o cuasi-óptimas en tiempo razonable.<br>
+          <strong>Presentación Clase 2:</strong> Slides 6 a 8 (Matemáticas, algoritmos e incompletitud) y Slide 32 (Técnicas de búsqueda).
+        </div>
+      </details>
+    </section>
+
+  </div>
+
+  <!-- ==================== MODAL GUÍA BIBLIOGRÁFICA ==================== -->
+  <div class="modal-overlay" id="modal-biblio">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">📚 Mapa Bibliográfico Obligatorio — Laboratorio I</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Todo el contenido del Trabajo Práctico N° 1 ha sido diseñado en base a las clases dictadas y al libro de referencia internacional de la materia:</p>
+        
+        <h4>Libro Principal de Cátedra:</h4>
+        <p><strong>Russell, Stuart & Norvig, Peter:</strong> <em>Inteligencia Artificial: Un Enfoque Moderno</em> (2da / 3ra Edición, Pearson / Prentice Hall).</p>
+        <ul>
+          <li><strong>Capítulo 1: Introducción (pp. 1-31):</strong> Definiciones, 4 cuadrantes, Test de Turing, raíces históricas y estado del arte.</li>
+          <li><strong>Capítulo 2: Agentes Inteligentes (pp. 34-58):</strong> Percepciones, acciones, función de agente, especificación PEAS, propiedades y arquitecturas de agentes reactivos.</li>
+          <li><strong>Capítulo 26: Aspectos Filosóficos y Éticos (pp. 1020-1045):</strong> IA Fuerte vs Débil, la Habitación China de Searle y debates contemporáneos.</li>
+        </ul>
+
+        <h4>Diapositivas Oficiales de Clase:</h4>
+        <ul>
+          <li><code>1 - Introducción a la IA.pptx</code>: Concepciones, películas, dimensiones, Test de Turing e infografías de Searle.</li>
+          <li><code>2 - Raíces y Aplicaciones de la IA.pptx</code>: Fundamentos filosóficos, matemáticos, computabilidad y catálogo de aplicaciones reales.</li>
+          <li><code>3.1 - Resolución de Problemas mediante búsqueda.pptx</code>: Racionalidad lógica, agentes inteligentes, especificación PEAS y agentes reactivos simples.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL GUÍA GIT / GITHUB ==================== -->
+  <div class="modal-overlay" id="modal-git">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">🚀 Flujo de Trabajo y Entrega con Git / GitHub</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Para resolver y entregar este Trabajo Práctico de manera individual, sigue estos pasos:</p>
+
+        <h4>Paso 1: Clonar o descargar el repositorio</h4>
+        <div class="code-block">git clone &lt;URL_DE_TU_REPOSITORIO&gt;<br>cd TP1</div>
+
+        <h4>Paso 2: Resolver en el navegador</h4>
+        <p>Abre el archivo <code>index.html</code> con doble clic en tu navegador web favorito (Chrome, Firefox, Edge). Las respuestas se guardan automáticamente en tu navegador a medida que avanzas.</p>
+
+        <h4>Paso 3: Exportar el archivo de respuestas</h4>
+        <p>Cuando la barra de progreso alcance el <strong>100%</strong> y hayas completado tus datos personales, presiona el botón verde <strong>"💾 Exportar Respuestas (.json)"</strong>. Guarda el archivo con el nombre exacto <code>respuestas_tp1.json</code> en la misma carpeta donde está <code>autograder_tp1.py</code>.</p>
+
+        <h4>Paso 4: Autoevaluación local</h4>
+        <p>Abre tu terminal en la carpeta del TP y ejecuta:</p>
+        <div class="code-block">python autograder_tp1.py respuestas_tp1.json</div>
+        <p>El autograder verificará tus respuestas contra la clave criptográfica local sin revelar las soluciones. Si tienes alguna discrepancia, el reporte te indicará qué sección estudiar en la bibliografía para corregirla.</p>
+
+        <h4>Paso 5: Confirmar y subir a GitHub</h4>
+        <div class="code-block">git add respuestas_tp1.json<br>git commit -m "Entrega TP1 - [Nombre y Apellido]"<br>git push origin main</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

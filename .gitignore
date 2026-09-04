@@ -1,0 +1,30 @@
+# ==============================================================================
+# .gitignore - Laboratorio I (IA) - Cátedra Ing. Fabio D. Argañaraz
+# ==============================================================================
+
+# Clave maestra docente en texto plano (ESTRICTAMENTE PRIVADA)
+*_master.json
+rubric_tp*_master.json
+
+# Caches y entornos virtuales de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+
+# Archivos de depuración, borradores y pruebas locales
+respuestas_test.json
+scratch/
+*.docx
+*.docx.md
+
+# Archivos de sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak
