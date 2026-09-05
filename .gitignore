@@ -2,9 +2,10 @@
 # .gitignore - Laboratorio I (IA) - Cátedra Ing. Fabio D. Argañaraz
 # ==============================================================================
 
-# Clave maestra docente en texto plano (ESTRICTAMENTE PRIVADA)
+# Clave maestra docente y material de evaluación privado
 *_master.json
 rubric_tp*_master.json
+quizizz.md
 
 # Caches y entornos virtuales de Python
 __pycache__/
