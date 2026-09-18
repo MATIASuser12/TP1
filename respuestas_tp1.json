@@ -1,0 +1,83 @@
+{
+  "tp_id": "LAB1-2026-TP1",
+  "student": {
+    "name": "Matias Ramos",
+    "dni": "43698740",
+    "email": "matiiramos11@gmail.com",
+    "comision": "comision1 - turno tarde",
+    "github_user": "MATIASuser12"
+  },
+  "exported_at": "2026-09-16T22:04:09.597Z",
+  "answers": {
+    "ej1_terminos_fundamentales": {
+      "inteligencia": "capacidad_cognitiva",
+      "ia": "sistemas_racionales",
+      "agente": "entidad_percepcion_accion",
+      "entorno": "medio_operacion",
+      "racionalidad": "max_desempeno_esperado"
+    },
+    "ej2_dimensiones_russell_norvig": {
+      "actuar_humano": "test_turing",
+      "pensar_humano": "ciencias_cognitivas",
+      "pensar_racional": "leyes_pensamiento",
+      "actuar_racional": "agentes_racionales",
+      "paradigma_central": "actuar_racional"
+    },
+    "ej3_ciclo_agente_arquitectura": {
+      "paso1_mundo": "entorno",
+      "paso2_captura": "sensores",
+      "paso3_dato": "percepciones",
+      "paso4_decision": "programa_agente",
+      "paso5_comando": "acciones",
+      "paso6_ejecucion": "actuadores",
+      "distincion_matematica": "funcion_agente",
+      "distincion_implementacion": "programa_agente"
+    },
+    "ej4_especificacion_peas": {
+      "auto_e": "calles_peatones_vehiculos_clima",
+      "auto_a": "volante_freno_acelerador_luces",
+      "auto_s": "camaras_lidar_radar_gps_velocimetro",
+      "auto_p": "seguridad_rapidez_confort_legalidad",
+      "med_p": "paciente_saludable_min_costos",
+      "med_e": "paciente_hospital_personal_sanitario",
+      "med_a": "preguntas_pruebas_tratamientos_recetas",
+      "med_s": "preguntas_pruebas_tratamientos_recetas"
+    },
+    "ej5_propiedades_agentes": {
+      "sit_sin_intervencion": "AUTONOMIA",
+      "sit_detectar_freno": "REACTIVIDAD",
+      "sit_adaptacion_entorno": "REACTIVIDAD",
+      "sit_comunicacion_agentes": "PROACTIVIDAD",
+      "sit_iniciativa_objetivos": "PROACTIVIDAD"
+    },
+    "ej6_agente_reactivo_simple": {
+      "caso_a_sucio": "aspirar",
+      "caso_a_limpio": "derecha",
+      "caso_b_sucio": "aspirar",
+      "caso_b_limpio": "izquierda",
+      "propiedad_memoria": "ignora_historial"
+    },
+    "ej7_test_turing_disciplinas": {
+      "disp_nlp": "TURING_ESTANDAR",
+      "disp_cv": "TEST_TOTAL_EXCLUSIVO",
+      "disp_rob": "TURING_ESTANDAR",
+      "disp_ml": "TURING_ESTANDAR",
+      "disp_ar": "TURING_ESTANDAR",
+      "disp_kr": "TURING_ESTANDAR"
+    },
+    "ej8_estado_del_arte": {
+      "tarea_diagnostico_imagen": "RESUELTO_DOMINADO",
+      "tarea_traduccion_contextual": "EN_DESARROLLO_ACTIVO",
+      "tarea_conduccion_urbana_no_delimitada": "EN_DESARROLLO_ACTIVO",
+      "tarea_teoremas_complejos": "PROBLEMA_ABIERTO_NO_RESUELTO"
+    },
+    "ej9_habitacion_china_searle": {
+      "map_libro_reglas": "SOFTWARE_ALGORITMO",
+      "map_cestas_simbolos": "MEMORIA_BASE_DATOS",
+      "map_ranuras_papel": "INTERFACES_IO",
+      "conclusion_searle": "sintaxis_no_semantica",
+      "map_operario": "CPU_PROCESADOR"
+    },
+    "ej10_limites_y_heuristicas": "opt_c"
+  }
+}
