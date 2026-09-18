@@ -44,12 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTheme() {
   const saved = localStorage.getItem('LAB1_THEME') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
+  document.documentElement.classList.toggle('dark', saved === 'dark');
   const toggleBtn = document.getElementById('theme-toggle-btn');
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
       const cur = document.documentElement.getAttribute('data-theme');
       const next = cur === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
+      document.documentElement.classList.toggle('dark', next === 'dark');
       localStorage.setItem('LAB1_THEME', next);
     });
   }

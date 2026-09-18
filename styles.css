@@ -408,6 +408,7 @@ body {
   color: var(--text-secondary);
 }
 
+select,
 .form-input, .custom-select {
   width: 100%;
   padding: 9px 12px;

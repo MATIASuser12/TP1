@@ -24,7 +24,7 @@ Al finalizar este Trabajo Práctico, el estudiante será capaz de:
 
 Todo el contenido práctico está fundamentado en el texto internacional de referencia y en las clases teóricas:
 
-| Ejercicio | Tema Principal | Libro de Cátedra (Russell & Norvig) | Diapositivas de Clase |
+| Ejercicio | Tema Principal | Libro de Cátedra ([Russell & Norvig](http://jdelagarza.fime.uanl.mx/IA/Libros/inteligencia-artificial-un-enfoque-moderno-stuart-j-russell.pdf)) | Diapositivas de Clase |
 | :---: | :--- | :--- | :--- |
 | **Ej 1** | Términos Fundamentales | Cap. 1.1 (pp. 1–5): *¿Qué es la IA?* | `1 - Introducción a la IA.pptx` (Slides 10–13) |
 | **Ej 2** | Cuadrante de 4 Dimensiones | Cap. 1.1 (pp. 2–5, Cuadro 1.1) | `1 - Introducción a la IA.pptx` (Slides 15–16) |
